@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  https-portal:
+    image: steveltn/https-portal:1
+    ports:
+      - 80:80
+      - 443:443
+
+    environment:
+      DOMAINS: "irsyaad.budi.dev -> https://host.docker.internal:3000"
+      STAGE: local
+
+    volumes:
+      - https-portal-data:/var/lib/https-portal
+      - ./certs:/var/lib/https-portal
+
+volumes:
+  https-portal-data:

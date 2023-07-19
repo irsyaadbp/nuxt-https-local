@@ -1,0 +1,20 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "add:domain": "echo '127.0.0.1 irsyaad.budi.dev' | sudo tee -a /etc/hosts",
+    "docker:ssl:up": "docker-compose -f config/https-local/docker-compose.yml up",
+    "docker:ssl:down": "docker-compose -f config/https-local/docker-compose.yml down",
+    "dev:ssl": "NODE_TLS_REJECT_UNAUTHORIZED=0 yarn dev --https --ssl-cert ./config/https-local/certs/irsyaad.budi.dev/local/signed.crt --ssl-key ./config/https-local/certs/irsyaad.budi.dev/local/domain.key"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "latest",
+    "@types/node": "^18.16.19",
+    "nuxt": "^3.6.3"
+  }
+}
